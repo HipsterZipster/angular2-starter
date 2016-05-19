@@ -13,12 +13,12 @@ import { Component } from '@angular/core';
 import { ChildComponent } from './child.component';
 
 @Component({
-    selector: 'as-test',
-    template: `
+               selector: 'as-test',
+               template: `
     <as-child text="Hello test" [(fromParent)]="testName"></as-child>
     `,
-    directives: [ChildComponent]
-})
+               directives: [ChildComponent]
+           })
 class TestComponent {
     testName: string;
 
@@ -33,22 +33,33 @@ let childCmp: ChildComponent;
 
 describe('ChildComponent', () => {
     it('should print inputs correctly', async(inject([TestComponentBuilder],
-    (tsb: TestComponentBuilder) => {
-        tsb.createAsync(TestComponent).then((fixture) => {
-            testFixture = fixture;
-            testFixture.detectChanges();
+                                                     (tsb: TestComponentBuilder) => {
+                                                         tsb.createAsync(TestComponent)
+                                                             .then((fixture) => {
+                                                                 testFixture = fixture;
+                                                                 testFixture.detectChanges();
 
-            childCompiled = testFixture.nativeElement;
-            childCmp = testFixture.debugElement.children[0].componentInstance;
+                                                                 childCompiled =
+                                                                     testFixture.nativeElement;
+                                                                 childCmp =
+                                                                     testFixture.debugElement.children[0].componentInstance;
 
-            expect(childCompiled).toBeDefined();
-            expect(childCmp).toBeDefined();
-            expect(childCompiled.querySelector('h6'))
-                .toHaveText('From parent');
-            expect(childCompiled.querySelector('h5'))
-                .toHaveText('Hello test');
-        });
-    })));
+                                                                 expect(childCompiled)
+                                                                     .toBeDefined();
+                                                                 expect(childCmp)
+                                                                     .toBeDefined();
+                                                                 expect(
+                                                                     childCompiled.querySelector(
+                                                                         'h6'))
+                                                                     .toHaveText(
+                                                                         'From parent');
+                                                                 expect(
+                                                                     childCompiled.querySelector(
+                                                                         'h5'))
+                                                                     .toHaveText(
+                                                                         'Hello test');
+                                                             });
+                                                     })));
 
     it('should trigger changeMe event correctly', () => {
         childCmp.changeMe();

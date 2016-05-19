@@ -13,10 +13,10 @@ import { AppComponent } from './app.component';
 import { LoggerService } from './blocks/logger.service';
 
 @Component({
-    selector: 'as-test',
-    template: '<div><as-main-app></as-main-app></div>',
-    directives: [AppComponent]
-})
+               selector: 'as-test',
+               template: '<div><as-main-app></as-main-app></div>',
+               directives: [AppComponent]
+           })
 class TestComponent {
 }
 
@@ -27,13 +27,19 @@ describe('AppComponent', () => {
     ]);
 
     it('should have brand Angular 2 Starter', async(inject([TestComponentBuilder],
-        (tsb: TestComponentBuilder) => {
-            tsb.createAsync(TestComponent).then((fixture) => {
-                fixture.detectChanges();
-                let compiled = fixture.debugElement.nativeElement;
-                expect(compiled).toBeDefined();
-                expect(compiled.querySelector('a.navbar-brand'))
-                    .toHaveText('Angular 2 Starter');
-            });
-        })));
+                                                           (tsb: TestComponentBuilder) => {
+                                                               tsb.createAsync(
+                                                                   TestComponent)
+                                                                   .then((fixture) => {
+                                                                       fixture.detectChanges();
+                                                                       let compiled = fixture.debugElement.nativeElement;
+                                                                       expect(compiled)
+                                                                           .toBeDefined();
+                                                                       expect(
+                                                                           compiled.querySelector(
+                                                                               'a.navbar-brand'))
+                                                                           .toHaveText(
+                                                                               'Angular 2 Starter');
+                                                                   });
+                                                           })));
 });

@@ -1,10 +1,10 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {Todo} from './todo.model';
-import {filter} from 'lodash';
+import { Pipe, PipeTransform } from '@angular/core';
+import { Todo } from './todo.model';
+import { filter } from 'lodash';
 
 @Pipe({
-    name: 'asCompletedFilter'
-})
+          name: 'asCompletedFilter'
+      })
 export class CompletedFilterPipe implements PipeTransform {
     transform(todos: Todo[], done): Todo[] {
         if (done) {

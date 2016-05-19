@@ -14,10 +14,10 @@ import { Todo } from './todo.model';
 import { TodolistComponent } from './todolist.component';
 
 @Component({
-    selector: 'as-test',
-    template: '<as-todolist></as-todolist>',
-    directives: [TodolistComponent]
-})
+               selector: 'as-test',
+               template: '<as-todolist></as-todolist>',
+               directives: [TodolistComponent]
+           })
 class TestComponent {
 }
 
@@ -27,17 +27,24 @@ let todolistCmp: TodolistComponent;
 
 describe('TodolistComponent', () => {
     it('should have been created successfully', async(inject([TestComponentBuilder],
-        (tcb: TestComponentBuilder) => {
-            tcb.createAsync(TestComponent).then((fixture) => {
-                testFixture = fixture;
-                fixture.detectChanges();
+                                                             (tcb: TestComponentBuilder) => {
+                                                                 tcb.createAsync(
+                                                                     TestComponent)
+                                                                     .then((fixture) => {
+                                                                         testFixture =
+                                                                             fixture;
+                                                                         fixture.detectChanges();
 
-                todoCompiled = fixture.nativeElement;
-                todolistCmp = fixture.debugElement
-                    .children[0].componentInstance;
-                expect(todoCompiled).toBeDefined();
-            });
-    })));
+                                                                         todoCompiled =
+                                                                             fixture.nativeElement;
+                                                                         todolistCmp =
+                                                                             fixture.debugElement
+                                                                                 .children[0].componentInstance;
+                                                                         expect(
+                                                                             todoCompiled)
+                                                                             .toBeDefined();
+                                                                     });
+                                                             })));
 
     it('should add todo successfully', () => {
         todolistCmp.todo = new Todo('test', true);

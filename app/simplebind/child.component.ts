@@ -1,13 +1,13 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'as-child',
-    template: `
+               selector: 'as-child',
+               template: `
         <h5>{{text}}</h5>
         <h6>{{fromParent}}</h6>
         <button (click)="changeMe()" class="btn btn-primary">Change</button>
     `
-})
+           })
 export class ChildComponent {
     @Input() text: string;
     @Input() fromParent: string;
